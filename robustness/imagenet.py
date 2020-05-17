@@ -27,14 +27,14 @@ image_shape = (299, 299, 3)
 
 categories = [
   'Persian cat',
-  'Labrador retriever']
-  # 'abacus', 'centipede',
-  # 'digital watch',
-  # 'balloon',
-  # 'castle',
-  # 'fountain',
-  # 'library',
-  # 'mask']
+  'Labrador retriever',
+  'abacus', 'centipede',
+  'digital watch',
+  'balloon',
+  'castle',
+  'fountain',
+  'library',
+  'mask']
 
 #%%
 images = []
@@ -85,22 +85,17 @@ with open(images_pkl_filename, 'wb') as output:
 with open('/Users/rohitsingh/Desktop/project/anchor/results/imagenet/metadata/data.pkl', 'rb') as input:
   images = pickle.load(input)
 
-#%%
-#########
-#%%
-# explanation methods
-methods = ['shapley_sampling']
 
-# methods = [
-#   'Anchor',
-#   'LIME',
-#   'saliency',
-#   'grad*input',
-#   'intgrad',
-#   'elrp',
-#   'deeplift',
-#   'occlusion',
-#   'shapley_sampling']
+methods = [
+  'Anchor',
+  'LIME',
+  'saliency',
+  'grad*input',
+  'intgrad',
+  'elrp',
+  'deeplift',
+  'occlusion',
+  'shapley_sampling']
 
 for method in methods:
   # Get explanation i.e anchors
