@@ -59,21 +59,16 @@ with open(images_pkl_filename, 'wb') as output:
   pickle.dump(images, output, pickle.HIGHEST_PROTOCOL)
 
 
-
-#%%
-# explanation methods
-methods = ['saliency']
-
-# methods = [
-#   'Anchor',
-#   'LIME',
-#   'saliency',
-#   'grad*input',
-#   'intgrad',
-#   'elrp',
-#   'deeplift',
-#   'occlusion',
-#   'shapley_sampling']
+methods = [
+  'Anchor',
+  'LIME',
+  'saliency',
+  'grad*input',
+  'intgrad',
+  'elrp',
+  'deeplift',
+  'occlusion',
+  'shapley_sampling']
 
 for method in methods:
   # Get explanation i.e anchors
@@ -96,6 +91,8 @@ for method in methods:
   
   # get visual data
   num = misclass_obj.misclassified_data['F']
+  if misclass_obj.misclassified_data['F'] >= 100:
+    num = 100
   filename = result_dir + '/' + method + '_result.pdf'
 
   misclass_obj.GiveVisual(num=num, filename=filename)
@@ -114,7 +111,3 @@ for method in methods:
 
   robustness.MakeReport(filename)
 
-
-
-
-# %%
